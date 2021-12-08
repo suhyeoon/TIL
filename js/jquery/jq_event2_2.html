@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드로 마우스 이벤트 사용하기</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        // mouseover(= focus) : 선택한 요소에 올라갔을 때 이벤트 발생 
+        // mouseout(= blur) : 선택한 요소에 벗어났을 때 이벤트 발생
+
+        // 값 저장하기
+        // data({"키" : "실제 값"})
+
+        $(function () {
+            $("#btn1").data({ "text": "javascript" }).on({
+                "mouseover": overFnc, // mouseover : 마우스 이벤트
+                "mouseout": outFnc // mouseout : 마우스 이벤트 
+            });
+
+            // 키보드로 마우스 이벤트처럼 사용하기
+            // tab을 누르고, btn2 버튼에 커서 이동시켜면 "welcome!" 출력
+            $("#btn2").data({ "text": "welcome!" }).on({
+                "mouseover focus": overFnc, // focus : 키보드 이벤트
+                "mouseout blur": outFnc // blur :  키보드 이벤트
+            });
+
+            function overFnc() {
+                // 
+                $(".txt").text($(this).data("text"));
+            }
+
+            function outFnc() {
+                $(".txt").text("");
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <p><button id="btn1">버튼1</button></p>
+    <p><button id="btn2">버튼2</button></p>
+    <p class="txt"></p>
+</body>
+
+</html>

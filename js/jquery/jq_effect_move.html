@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title> 효과와 애니메이션 </title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(function () {
+			var txt1 = $(".txt1");
+			var count = 1;
+			$(".btnWrap button").on("click", function () { // 버튼을 누르면 실행한다.
+				// .is() 메서드는 선택한 요소에서 주어진 선택자 있는지 판별하고, 있으면 true를 반환한다.
+				// $("선택자").is("선택자 or 변수 or 함수");
+				if (!txt1.is(":animated")) { // 애니메이션 중이면, 동작하지 않는다.
+					// hasClass() 메서드는 선택한 요소에 클래스가 있는지 확인한다.
+					// $("선택자").hasClass("클래스이름");
+					if ($(this).hasClass("backBtn")) { // 누른 버튼의 클래스명이 'backBtn' 이면 실행
+						count--;
+						if (count < 1) {
+							count = 1;
+							return false;
+						}
+						txt1.animate({ marginLeft: "-=10%" }, 300); // 0.3초
+					} else { // 그렇지 않다면 아래 실행
+						count++;
+						if (count > 10) {
+							count = 10;
+							return false;
+						}
+						txt1.animate({ marginLeft: "+=10%" }, 300);
+					}
+				}
+			});
+		});
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 20px;
+		}
+
+		.btnWrap {
+			margin-bottom: 10px;
+		}
+
+		.wrap {
+			max-width: 600px;
+			border: 1px solid #000;
+		}
+
+		.txt1 {
+			width: 10%;
+			text-align: center;
+			background-color: aqua;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="btnWrap">
+		<button class="backBtn">Back</button>
+		<!--클릭 시 왼쪽으로 한칸 움직인다.-->
+		<button class="goBtn">Go</button>
+		<!--클릭 시 오른쪽으로 한칸 움직인다.-->
+	</p>
+	<div class="wrap">
+		<p class="txt1">내용</p>
+	</div>
+</body>
+
+</html>

@@ -6,8 +6,10 @@
 	<title> Ajax </title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
+        // 도메인 서버에서 데이터(json)를 가져오는 방법
+        // 다른 도메인 환경에서 실행하기 위해 서로 다른 서버에 저장하고 실행
 		$(function () {
-			var href = "http://project.dothome.co.kr/member.php?callback=myFnc"; // 닷홈 호스팅에 파일 업로드 후 실행
+			var href = "http://project.dothome.co.kr/member.php?callback=myFnc"; 
 			$.ajax({
 				url: href,
 				dataType: "jsonp"

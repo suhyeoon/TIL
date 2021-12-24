@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title> Ajax </title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		// $.ajax() 메서드를 사용하여 가상 회원 데이터(json)를 HTML 태그에 결합한다.
+		// 파일을 실행하면 데이터가 테이블에 삽입된다.
+		$(function () {
+			var href = "http://project.dothome.co.kr/member.php?callback=myFnc";
+			$.ajax({
+				url: href,
+				dataType: "jsonp"
+			}).done(function myTest(data) {
+				if (data.length > 0) {
+					var $table = $("<table />");
+					data.forEach(function (o) {
+						$id = o.id;
+						$name = o.name;
+						$email = o.email;
+
+						var trTag = $("<tr />");
+						trTag.append(
+							$("<td/>").text($id),
+							$("<td/>").text($name),
+							$("<td/>").text($email)
+						);
+
+						$table.append(trTag);
+					});
+
+					$(".wrap").append($table);
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div class="wrap"></div>
+</body>
+
+</html>

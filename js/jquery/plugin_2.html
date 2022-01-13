@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>datepicker 위젯 달력</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/js/plugin/jquery-ui-1.10.4.custom.min.js"></script>
+	<link rel="stylesheet" href="/css/jquery-ui.min.css">
+	<script>
+		$(function () {
+			// jquery UI 플러그인으로 날짜 설정 달력 만들기
+			// datepicker 위젯은 jquery에서 제공하는 달력 형식의 UI 위젯 중 하나이다.
+			$("#startDate").datepicker({
+				minDate: +1, // 캘린터 범위에서 시작 날짜
+				maxDate: "+1M" // 캘린더 범위에서 마지막 날짜
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<p>
+		<label for="startDate">날짜선택</label>
+		<!--datepicker를 출력할 input 태그를 선언하면, 해당 id를 찾아 기본 옵션의 날짜 선택기를 사용할 수 있다.-->
+		<!--선택자로 지명된 id가 startDate인 input 태그를 추가한다.-->
+		<input type="text" name="startDate" id="startDate">
+	</p>
+</body>
+
+</html>

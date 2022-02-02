@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>함수 예제(1)</title>
     <script>
-
         var count = 0;
-
         // 함수 호출문이 먼저 나와도 호이스팅(hoisting) 방식이 적용되어
         // 정상적으로 함수를 호출한다.
         myFnc(); // hello1
-
         function myFnc() {
             count++;
             document.write("hello" + count, "<br>");
         }
-
         myFnc(); // hello2
-
         var theFnc = function () {
             count++;
             document.write("bye" + count, "<br>");
         }
-
         theFnc(); //bye3
-
     </script>
 </head>
-
 <body>
-
 </body>
-
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Event</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			$("ul a").on("click", function(event) {	// <ul>요소의 자식 요소 중 모든 <a>요소를 클릭했을 때
+				event.preventDefault();	// <a>요소의 클릭시 기본 동작인 링크의 작동을 중지시킨다.
+				$("#text").append("이 링크는 동작하지 않습니다!<br>");
+			});
+			$("button").one("click", function() { // .one() 메소드는 연결된 이벤트 핸들러가 한번 실행되고 나서는, 더는 실행되지 않는다.
+				$("ul").append('<li><a href="/jquery/intro">jQuery</a></li>');
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>이벤트 핸들러의 직접 등록</h1>
+	<p>아래 버튼을 눌러 링크를 추가하고, 링크를 클릭해 보세요!</p>
+	<ul>
+		<li><a href="/html/intro">HTML</a></li>
+		<li><a href="/css/intro">CSS</a></li>
+	</ul>
+	<button>리스트 아이템 추가</button>
+	<p id="text"></p>
+</body>
+
+</html>

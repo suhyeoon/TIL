@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Style</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			$("button").on("click", function() {
+				// id가 "first"와 "third"인 요소에 "service"라는 클래스를 추가하고, 다시 한 번 클릭하면 제거한다.
+				$("#first, #third").toggleClass("service");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>클래스의 토글</h1>
+	<p id="first">이 단락에 클래스를 추가해 보아요!</p>
+	<p>이 단락에는 클래스를 추가하지 않아요!</p>
+	<p id="third">이 단락에 클래스를 추가해 보아요!</p>
+	<button>클래스 토글</button>
+</body>
+
+</html>

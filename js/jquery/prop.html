@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Style</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			$("#setBtn").on("click", function() {
+				$("input[value='jquery']").prop({	// <input>요소 중에서 value 값이 "jquery"인 요소를 선택한 후
+					checked: true					// 해당 요소에 checked 프로퍼티를 true 값으로 설정한다.
+				});
+			});
+			$("#removeBtn").on("click", function() {
+				$("input[value='jquery']").removeProp("checked");	// 해당 요소에서 checked 프로퍼티를 삭제한다.
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<h1>.prop() 메소드</h1>
+	<form>
+		<input type="checkbox" name="lecture" value="html" checked> HTML <br>
+		<input type="checkbox" name="lecture" value="jquery"> jQuery
+	</form>
+	<br>
+	<button id="setBtn">jQuery에 프로퍼티 값 설정</button>
+	<button id="removeBtn">프로퍼티 제거</button>
+	
+</body>
+
+</html>

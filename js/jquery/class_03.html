@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Style</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			$("button").on("click", function() { // <button> 요소를 클릭했을 때
+				// id가 "target"인 요소에 "service"라는 클래스가 포함되어 있으면 true를, 포함되지 않으면 false를 반환한다.
+				var result = $("#target").hasClass("service");
+				$("#text").html(result); // "true" 를 반환한다.
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>클래스의 확인</h1>
+	<p id="target" class="service">hasClass() 메소드를 이용하여 해당 요소가 특정 클래스에 포함되어 있는지를 확인할 수 있습니다.</p>
+	<button>클래스 확인</button>
+	<p id="text"></p> 
+</body>
+
+</html>

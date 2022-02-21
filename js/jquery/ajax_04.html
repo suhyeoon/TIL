@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Ajax HTTP Request</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            $("#requestBtn").on("click", function () {
+                $.post("/example/media/request_ajax.php", {
+                    animal: "고양이",
+                    name: "나비",
+                    age: "3"
+                }, function (data, status) {
+                    $("#text").html(data + "<br>" + status);
+                }
+                );
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>$.post() 메소드</h1>
+    <button id="requestBtn">POST 방식으로 데이터 불러오기!</button>
+    <p id="text"></p>
+</body>
+
+</html>
